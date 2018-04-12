@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/lb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="Informações"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/nomeLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lb"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="12dp"
+        android:text="Nome:"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/nomeTf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nomeLb"
+        android:layout_alignStart="@+id/nomeLb"
+        android:layout_below="@+id/nomeLb"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/racaLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nomeTf"
+        android:layout_alignStart="@+id/nomeTf"
+        android:layout_below="@+id/nomeTf"
+        android:layout_marginTop="13dp"
+        android:text="Raça:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/racaTf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/racaLb"
+        android:layout_alignStart="@+id/racaLb"
+        android:layout_below="@+id/racaLb"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/especieLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/racaTf"
+        android:layout_alignStart="@+id/racaTf"
+        android:layout_below="@+id/racaTf"
+        android:layout_marginTop="14dp"
+        android:text="Espécie:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/especieTf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/especieLb"
+        android:layout_alignStart="@+id/especieLb"
+        android:layout_below="@+id/especieLb"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/pesoLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/especieTf"
+        android:layout_alignStart="@+id/especieTf"
+        android:layout_below="@+id/especieTf"
+        android:layout_marginTop="18dp"
+        android:text="Peso:"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/pesoTf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/pesoLb"
+        android:layout_alignStart="@+id/pesoLb"
+        android:layout_below="@+id/pesoLb"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/nascimentoLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/pesoLb"
+        android:layout_centerHorizontal="true"
+        android:text="Nascimento:"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/nascimentoTf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nascimentoLb"
+        android:layout_alignStart="@+id/nascimentoLb"
+        android:layout_below="@+id/nascimentoLb"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/porteLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/nascimentoLb"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/nascimentoLb"
+        android:layout_toRightOf="@+id/nascimentoLb"
+        android:text="Porte:"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        />
+
+    <TextView
+        android:id="@+id/porteTf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/porteLb"
+        android:layout_alignStart="@+id/porteLb"
+        android:layout_below="@+id/porteLb"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/editBt"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/nascimentoTf"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="71dp"
+        android:background="@drawable/pencil"/>
+</RelativeLayout>

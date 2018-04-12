@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/lb_novo_animal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="Novo Animal"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/nomeLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lb_novo_animal"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Nome:"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        />
+
+    <EditText
+        android:id="@+id/nomeInsert"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/nomeLb"
+        android:layout_alignStart="@+id/nomeLb"
+        android:layout_below="@+id/nomeLb"
+        android:hint=" ''Garfield'' "
+        android:inputType="textPersonName"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/racaLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nomeInsert"
+        android:layout_alignStart="@+id/nomeInsert"
+        android:layout_below="@+id/nomeInsert"
+        android:layout_marginTop="13dp"
+        android:text="Raça:"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/racaInsert"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/racaLb"
+        android:layout_alignStart="@+id/racaLb"
+        android:layout_below="@+id/racaLb"
+        android:hint=" ''Persa'' "
+        android:inputType="textPersonName"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/especieLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/racaInsert"
+        android:layout_alignStart="@+id/racaInsert"
+        android:layout_below="@+id/racaInsert"
+        android:layout_marginTop="14dp"
+        android:text="Espécie:"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/especieInsert"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/especieLb"
+        android:layout_alignStart="@+id/especieLb"
+        android:layout_below="@+id/especieLb"
+        android:hint=" ''Gato''"
+        android:inputType="textPersonName"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/pesoLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/especieInsert"
+        android:layout_alignStart="@+id/especieInsert"
+        android:layout_below="@+id/especieInsert"
+        android:layout_marginTop="18dp"
+        android:text="Peso:"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/pesoInsert"
+        android:layout_width="80dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/pesoLb"
+        android:layout_alignStart="@+id/pesoLb"
+        android:layout_below="@+id/pesoLb"
+        android:inputType="numberDecimal"
+        android:textSize="12sp"
+        android:hint=" ''8.5''"
+        />
+
+    <TextView
+        android:id="@+id/nascimentoLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/pesoLb"
+        android:layout_centerHorizontal="true"
+        android:text="Nascimento:"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        />
+
+    <EditText
+        android:id="@+id/nascimentoInsert"
+        android:layout_width="80dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/nascimentoLb"
+        android:layout_alignStart="@+id/nascimentoLb"
+        android:layout_below="@+id/nascimentoLb"
+        android:inputType="date"
+        android:textSize="12sp"
+        android:hint=" ''01/01/2018''"
+        />
+
+    <TextView
+        android:id="@+id/porteLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/nascimentoLb"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/nascimentoLb"
+        android:layout_toRightOf="@+id/nascimentoLb"
+        android:text="Porte:"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
+
+    <Spinner
+        android:id="@+id/porteInsert"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:textSize="12sp"
+        android:layout_alignLeft="@+id/porteLb"
+        android:layout_alignStart="@+id/porteLb"
+        android:layout_below="@+id/porteLb"
+        android:entries="@array/array_name"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/CadastrarBt"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/porteInsert"
+        android:layout_marginTop="64dp"
+        android:layout_toEndOf="@+id/nascimentoInsert"
+        android:layout_toRightOf="@+id/nascimentoInsert"
+        android:background="@drawable/checked" />
+
+    <Button
+        android:id="@+id/voltarBt"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="63dp"
+        android:layout_below="@+id/nascimentoInsert"
+        android:layout_toStartOf="@+id/nascimentoInsert"
+        android:layout_toLeftOf="@+id/nascimentoInsert"
+        android:background="@drawable/x" />
+
+</RelativeLayout>

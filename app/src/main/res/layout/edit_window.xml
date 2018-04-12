@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/lb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="Alterar"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        />
+
+    <TextView
+        android:id="@+id/nomeLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lb"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="12dp"
+        android:text="Nome:"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        />
+
+    <EditText
+        android:id="@+id/nomeEdit"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/nomeLb"
+        android:layout_alignStart="@+id/nomeLb"
+        android:layout_below="@+id/nomeLb"
+        android:inputType="textPersonName"
+        android:text="TextView"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/racaLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/nomeEdit"
+        android:layout_alignStart="@+id/nomeEdit"
+        android:layout_below="@+id/nomeEdit"
+        android:layout_marginTop="13dp"
+        android:text="Raça:"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/racaEdit"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/racaLb"
+        android:layout_alignStart="@+id/racaLb"
+        android:layout_below="@+id/racaLb"
+        android:inputType="textPersonName"
+        android:text="TextView"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/especieLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/racaEdit"
+        android:layout_alignStart="@+id/racaEdit"
+        android:layout_below="@+id/racaEdit"
+        android:layout_marginTop="14dp"
+        android:text="Espécie:"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/especieEdit"
+        android:layout_width="280dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/especieLb"
+        android:layout_alignStart="@+id/especieLb"
+        android:layout_below="@+id/especieLb"
+        android:inputType="textPersonName"
+        android:text="TextView"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/pesoLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/especieEdit"
+        android:layout_alignStart="@+id/especieEdit"
+        android:layout_below="@+id/especieEdit"
+        android:layout_marginTop="18dp"
+        android:text="Peso:"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/pesoEdit"
+        android:layout_width="80dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/pesoLb"
+        android:layout_alignStart="@+id/pesoLb"
+        android:layout_below="@+id/pesoLb"
+        android:inputType="numberDecimal"
+        android:text="TextView"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/nascimentoLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/pesoLb"
+        android:layout_centerHorizontal="true"
+        android:text="Nascimento:"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        />
+
+    <EditText
+        android:id="@+id/nascimentoEdit"
+        android:layout_width="80dp"
+        android:layout_height="34dp"
+        android:layout_alignLeft="@+id/nascimentoLb"
+        android:layout_alignStart="@+id/nascimentoLb"
+        android:layout_below="@+id/nascimentoLb"
+        android:inputType="date"
+        android:text="TextView"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/porteLb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/nascimentoLb"
+        android:layout_marginLeft="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@+id/nascimentoLb"
+        android:layout_toRightOf="@+id/nascimentoLb"
+        android:text="Porte:"
+        android:textStyle="bold"
+        android:textSize="14sp"/>
+
+    <Spinner
+        android:id="@+id/porteEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="34dp"
+        android:textSize="12sp"
+        android:layout_alignLeft="@+id/porteLb"
+        android:layout_alignStart="@+id/porteLb"
+        android:layout_below="@+id/porteLb"
+        android:entries="@array/array_name"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/SalvarBt"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/nascimentoEdit"
+        android:layout_marginTop="63dp"
+        android:layout_toEndOf="@+id/lb"
+        android:layout_toRightOf="@+id/lb"
+        android:background="@drawable/checked" />
+
+    <Button
+        android:id="@+id/cancelarBt"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/nascimentoEdit"
+        android:layout_marginTop="63dp"
+        android:layout_toStartOf="@+id/lb"
+        android:layout_toLeftOf="@+id/lb"
+        android:background="@drawable/x" />
+
+</RelativeLayout>
