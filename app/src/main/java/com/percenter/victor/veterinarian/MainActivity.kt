@@ -7,17 +7,23 @@ import android.os.Bundle
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.text.Editable
 import android.text.TextWatcher
+import android.widget.SearchView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.main_window.*
+import java.util.*
 
-class MainActivity : AppCompatActivity(), TextWatcher, Activity1Manager
-{
+class MainActivity : AppCompatActivity(), Activity1Manager, SearchView.OnQueryTextListener {
+
     lateinit var db:DbConnection
 
-    override fun afterTextChanged(p0: Editable?){}
-    override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int){}
-    override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int)
+    override fun onQueryTextSubmit(p0: String?): Boolean
     {
-        searchAnimais()
+        return searchAnimais()
+    }
+
+    override fun onQueryTextChange(p0: String?): Boolean
+    {
+        return searchAnimais()
     }
 
     override fun loadAll()
@@ -28,6 +34,11 @@ class MainActivity : AppCompatActivity(), TextWatcher, Activity1Manager
 
     fun updateWindow(animais: List<Animal>)
     {
+        val search_hint = resources.getStringArray(R.array.search_hint)
+        var i = arrayListOf<Int>(0,1,2,3,4,5)
+        i.shuffle(Random())
+        searchTf.queryHint = search_hint[i[0]]
+
         val adapter = ListAdapter(animais, this)
         listAnimais.adapter = adapter
         val layout = StaggeredGridLayoutManager(1,
@@ -47,11 +58,10 @@ class MainActivity : AppCompatActivity(), TextWatcher, Activity1Manager
         ).allowMainThreadQueries().build()
 
         addBt.setOnClickListener({})
-        searchBt.setOnClickListener({})
 
         loadAll()
 
-        searchTf.addTextChangedListener(this)
+        searchTf.setOnQueryTextListener(this)
         addBt.setOnClickListener({ loadInsertView() })
     }
 
@@ -73,11 +83,13 @@ class MainActivity : AppCompatActivity(), TextWatcher, Activity1Manager
         loadAll()
     }
 
-    private fun searchAnimais()
+    private fun searchAnimais(): Boolean
     {
-        val searchString = "%${searchTf.text.toString()}%"
+        val searchString = "%${searchTf.query}%"
         val animaisList = db.animalDAO().search(searchString)
         updateWindow(animaisList)
+
+        return animaisList.isEmpty()
     }
 
     private fun read(): List<Animal>

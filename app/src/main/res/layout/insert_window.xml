@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"
-        android:text="Novo Animal"
+        android:text="@string/novo_animal"
         android:textStyle="bold"
         android:textSize="20sp"
         />
@@ -26,19 +26,22 @@
         android:layout_marginLeft="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="12dp"
-        android:text="Nome:"
+        android:text="@string/nome"
         android:textStyle="bold"
         android:textSize="14sp"
         />
 
     <EditText
         android:id="@+id/nomeInsert"
-        android:layout_width="280dp"
+        android:layout_width="match_parent"
         android:layout_height="34dp"
         android:layout_alignLeft="@+id/nomeLb"
         android:layout_alignStart="@+id/nomeLb"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="40dp"
         android:layout_below="@+id/nomeLb"
-        android:hint=" ''Garfield'' "
+        android:hint="@string/nome_hint"
         android:inputType="textPersonName"
         android:textSize="12sp" />
 
@@ -50,18 +53,20 @@
         android:layout_alignStart="@+id/nomeInsert"
         android:layout_below="@+id/nomeInsert"
         android:layout_marginTop="13dp"
-        android:text="Raça:"
+        android:text="@string/raca"
         android:textSize="14sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/racaInsert"
-        android:layout_width="280dp"
+        android:layout_width="match_parent"
         android:layout_height="34dp"
         android:layout_alignLeft="@+id/racaLb"
         android:layout_alignStart="@+id/racaLb"
+        android:layout_alignRight="@id/nomeInsert"
+        android:layout_alignEnd="@id/nomeInsert"
         android:layout_below="@+id/racaLb"
-        android:hint=" ''Persa'' "
+        android:hint="@string/raca_hint"
         android:inputType="textPersonName"
         android:textSize="12sp" />
 
@@ -73,18 +78,20 @@
         android:layout_alignStart="@+id/racaInsert"
         android:layout_below="@+id/racaInsert"
         android:layout_marginTop="14dp"
-        android:text="Espécie:"
+        android:text="@string/especie"
         android:textSize="14sp"
         android:textStyle="bold" />
 
     <EditText
         android:id="@+id/especieInsert"
-        android:layout_width="280dp"
+        android:layout_width="match_parent"
         android:layout_height="34dp"
         android:layout_alignLeft="@+id/especieLb"
         android:layout_alignStart="@+id/especieLb"
+        android:layout_alignEnd="@id/racaInsert"
+        android:layout_alignRight="@id/racaInsert"
         android:layout_below="@+id/especieLb"
-        android:hint=" ''Gato''"
+        android:hint="@string/especie_hint"
         android:inputType="textPersonName"
         android:textSize="12sp" />
 
@@ -96,7 +103,7 @@
         android:layout_alignStart="@+id/especieInsert"
         android:layout_below="@+id/especieInsert"
         android:layout_marginTop="18dp"
-        android:text="Peso:"
+        android:text="@string/peso"
         android:textSize="14sp"
         android:textStyle="bold" />
 
@@ -118,7 +125,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/pesoLb"
         android:layout_centerHorizontal="true"
-        android:text="Nascimento:"
+        android:text="@string/nascimento"
         android:textStyle="bold"
         android:textSize="14sp"
         />
@@ -132,7 +139,7 @@
         android:layout_below="@+id/nascimentoLb"
         android:inputType="date"
         android:textSize="12sp"
-        android:hint=" ''01/01/2018''"
+        android:hint="@string/nascimento_hint"
         />
 
     <TextView
@@ -144,7 +151,7 @@
         android:layout_marginStart="40dp"
         android:layout_toEndOf="@+id/nascimentoLb"
         android:layout_toRightOf="@+id/nascimentoLb"
-        android:text="Porte:"
+        android:text="@string/porte"
         android:textStyle="bold"
         android:textSize="14sp"/>
 

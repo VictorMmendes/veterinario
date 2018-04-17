@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="43dp"
-        android:text="Informações"
+        android:text="@string/informacoes"
         android:textStyle="bold"
         android:textSize="20sp"
         />
@@ -26,7 +26,7 @@
         android:layout_marginLeft="52dp"
         android:layout_marginStart="52dp"
         android:layout_marginTop="12dp"
-        android:text="Nome:"
+        android:text="@string/nome"
         android:textStyle="bold"
         android:textSize="18sp"
         />
@@ -37,8 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/nomeLb"
         android:layout_alignStart="@+id/nomeLb"
-        android:layout_below="@+id/nomeLb"
-        android:text="TextView" />
+        android:layout_below="@+id/nomeLb" />
 
     <TextView
         android:id="@+id/racaLb"
@@ -48,7 +47,7 @@
         android:layout_alignStart="@+id/nomeTf"
         android:layout_below="@+id/nomeTf"
         android:layout_marginTop="13dp"
-        android:text="Raça:"
+        android:text="@string/raca"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -58,8 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/racaLb"
         android:layout_alignStart="@+id/racaLb"
-        android:layout_below="@+id/racaLb"
-        android:text="TextView" />
+        android:layout_below="@+id/racaLb" />
 
     <TextView
         android:id="@+id/especieLb"
@@ -69,7 +67,7 @@
         android:layout_alignStart="@+id/racaTf"
         android:layout_below="@+id/racaTf"
         android:layout_marginTop="14dp"
-        android:text="Espécie:"
+        android:text="@string/especie"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -79,8 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/especieLb"
         android:layout_alignStart="@+id/especieLb"
-        android:layout_below="@+id/especieLb"
-        android:text="TextView" />
+        android:layout_below="@+id/especieLb" />
 
     <TextView
         android:id="@+id/pesoLb"
@@ -90,7 +87,7 @@
         android:layout_alignStart="@+id/especieTf"
         android:layout_below="@+id/especieTf"
         android:layout_marginTop="18dp"
-        android:text="Peso:"
+        android:text="@string/peso"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -100,8 +97,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/pesoLb"
         android:layout_alignStart="@+id/pesoLb"
-        android:layout_below="@+id/pesoLb"
-        android:text="TextView" />
+        android:layout_below="@+id/pesoLb" />
 
     <TextView
         android:id="@+id/nascimentoLb"
@@ -109,7 +105,7 @@
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/pesoLb"
         android:layout_centerHorizontal="true"
-        android:text="Nascimento:"
+        android:text="@string/nascimento"
         android:textStyle="bold"
         android:textSize="18sp"
         />
@@ -120,8 +116,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/nascimentoLb"
         android:layout_alignStart="@+id/nascimentoLb"
-        android:layout_below="@+id/nascimentoLb"
-        android:text="TextView" />
+        android:layout_below="@+id/nascimentoLb" />
 
     <TextView
         android:id="@+id/porteLb"
@@ -132,7 +127,7 @@
         android:layout_marginStart="40dp"
         android:layout_toEndOf="@+id/nascimentoLb"
         android:layout_toRightOf="@+id/nascimentoLb"
-        android:text="Porte:"
+        android:text="@string/porte"
         android:textStyle="bold"
         android:textSize="18sp"
         />
@@ -143,8 +138,7 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/porteLb"
         android:layout_alignStart="@+id/porteLb"
-        android:layout_below="@+id/porteLb"
-        android:text="TextView" />
+        android:layout_below="@+id/porteLb" />
 
     <Button
         android:id="@+id/editBt"

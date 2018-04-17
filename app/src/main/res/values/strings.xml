@@ -1,9 +1,30 @@
 <resources>
-    <string name="app_name">Veterinarian</string>
+    <string name="app_name">Veterinary</string>
     <string-array name="array_name">
         <item>P</item>
         <item>M</item>
         <item>G</item>
     </string-array>
     <string name="title_activity_main22">Main22Activity</string>
+    <string name="nome">Nome:</string>
+    <string name="raca">Raça:</string>
+    <string name="especie">Espécie:</string>
+    <string name="peso">Peso:</string>
+    <string name="nascimento">Nascimento:</string>
+    <string name="porte">Porte:</string>
+    <string name="alterar">Alterar</string>
+    <string name="informacoes">Informações</string>
+    <string name="novo_animal">Novo Animal</string>
+    <string name="nome_hint">" ''Garfield''"</string>
+    <string name="raca_hint">" ''Persa''"</string>
+    <string name="especie_hint">" ''Gato''"</string>
+    <string name="nascimento_hint">" ''01/01/2018''"</string>
+    <string-array name="search_hint">
+        <item> " Pesquisar 'Ralf'" </item>
+        <item> " Pesquisar 'Pastor-alemão'" </item>
+        <item> " Pesquisar 'Gato'" </item>
+        <item> " Pesquisar 'Cachorro'" </item>
+        <item> " Pesquisar 'Poodle'" </item>
+        <item> " Pesquisar 'Yorkshire'" </item>
+    </string-array>
 </resources>
