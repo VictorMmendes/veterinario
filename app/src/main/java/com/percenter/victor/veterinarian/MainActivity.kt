@@ -1,20 +1,28 @@
 package com.percenter.victor.veterinarian
 
-import android.arch.persistence.room.Room
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.StaggeredGridLayoutManager
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.SearchView
-import android.widget.Toast
+import com.percenter.victor.veterinarian.remote.services.DAO.AnimalDaoService
+import com.percenter.victor.veterinarian.remote.services.services.AnimalRemotoListener
 import kotlinx.android.synthetic.main.main_window.*
 import java.util.*
 
-class MainActivity : AppCompatActivity(), Activity1Manager, SearchView.OnQueryTextListener {
+class MainActivity : AppCompatActivity(), Activity1Manager, SearchView.OnQueryTextListener, AnimalRemotoListener {
 
-    lateinit var db:DbConnection
+    override fun onGetAnimaisReturn(animais: List<Animal>)
+    {
+        updateWindow(animais)
+    }
+
+    override fun onAnimalError(mensagem: String)
+    {
+
+    }
+
+    var dao = AnimalDaoService(this)
 
     override fun onQueryTextSubmit(p0: String?): Boolean
     {
@@ -28,8 +36,7 @@ class MainActivity : AppCompatActivity(), Activity1Manager, SearchView.OnQueryTe
 
     override fun loadAll()
     {
-        var animaisList = read()
-        updateWindow(animaisList)
+        read()
     }
 
     fun updateWindow(animais: List<Animal>)
@@ -50,13 +57,6 @@ class MainActivity : AppCompatActivity(), Activity1Manager, SearchView.OnQueryTe
     {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_window)
-
-        db = Room.databaseBuilder(
-                applicationContext,
-                DbConnection::class.java,
-                "animal_models"
-        ).allowMainThreadQueries().build()
-
         addBt.setOnClickListener({})
 
         loadAll()
@@ -92,10 +92,8 @@ class MainActivity : AppCompatActivity(), Activity1Manager, SearchView.OnQueryTe
         return animaisList.isEmpty()
     }
 
-    private fun read(): List<Animal>
+    private fun read()
     {
-        lateinit var animais: List<Animal>
-        animais = db.animalDAO().animais()
-        return animais
+        var animais = dao.buscarTodas()
     }
 }

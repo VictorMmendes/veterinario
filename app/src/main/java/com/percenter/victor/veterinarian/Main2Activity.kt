@@ -5,11 +5,23 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.util.Log
+import com.percenter.victor.veterinarian.remote.services.DAO.AnimalDaoService
+import com.percenter.victor.veterinarian.remote.services.services.AnimalRemotoListener
 import kotlinx.android.synthetic.main.second_window.*
 
-class Main2Activity : AppCompatActivity(), Activity2Manager
-{
-    lateinit var db:DbConnection
+class Main2Activity : AppCompatActivity(), Activity2Manager, AnimalRemotoListener {
+
+    override fun onGetAnimaisReturn(animais: List<Animal>)
+    {
+
+    }
+
+    override fun onAnimalError(mensagem: String)
+    {
+
+    }
+
+    var dao = AnimalDaoService(this)
     lateinit var animal:Animal
 
     override fun editWindow()
@@ -45,12 +57,6 @@ class Main2Activity : AppCompatActivity(), Activity2Manager
 
         if(intent.extras.get("cod") == null)
         {
-            db = Room.databaseBuilder(
-                    applicationContext,
-                    DbConnection::class.java,
-                    "animal_models"
-            ).allowMainThreadQueries().build()
-
             val extras = intent.extras
             animal = db.animalDAO().findById(extras.get("id").toString().toInt())
             infoWindow()

@@ -3,13 +3,13 @@ package com.percenter.victor.veterinarian
 /**
  * Created by victor on 09/04/18.
  */
-
-import android.arch.persistence.room.Room
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.percenter.victor.veterinarian.remote.services.DAO.AnimalDaoService
+import com.percenter.victor.veterinarian.remote.services.services.AnimalRemotoListener
 import kotlinx.android.synthetic.main.animal_item.view.*
 
 class ListAdapter(val animais: List<Animal>, changer: Activity1Manager) :
@@ -39,11 +39,21 @@ class ListAdapter(val animais: List<Animal>, changer: Activity1Manager) :
     }
 
     class ViewHolder(view: View, changer: Activity1Manager) :
-            RecyclerView.ViewHolder(view) {
+            RecyclerView.ViewHolder(view), AnimalRemotoListener {
+
+        override fun onGetAnimaisReturn(animais: List<Animal>)
+        {
+
+        }
+
+        override fun onAnimalError(mensagem: String)
+        {
+
+        }
 
         val vw = view
         val changer = changer
-        lateinit var db:DbConnection
+        var dao = AnimalDaoService(this)
 
         fun preencherView(animal: Animal)
         {
@@ -62,13 +72,7 @@ class ListAdapter(val animais: List<Animal>, changer: Activity1Manager) :
 
         fun delAnimal(animal: Animal)
         {
-            db = Room.databaseBuilder(
-                    vw.context,
-                    DbConnection::class.java,
-                    "animal_models"
-            ).allowMainThreadQueries().build()
-
-            db.animalDAO().delAnimal(animal)
+            dao.delete(animal)
 
             changer.loadAll()
         }

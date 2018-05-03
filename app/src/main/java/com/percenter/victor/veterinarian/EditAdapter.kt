@@ -3,13 +3,12 @@ package com.percenter.victor.veterinarian
 /**
  * Created by victor on 09/04/18.
  */
-import android.arch.persistence.room.Room
-import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import com.percenter.victor.veterinarian.remote.services.DAO.AnimalDaoService
+import com.percenter.victor.veterinarian.remote.services.services.AnimalRemotoListener
 import kotlinx.android.synthetic.main.edit_window.view.*
 
 class EditAdapter(val animal: Animal, changer: Activity2Manager) :
@@ -35,10 +34,20 @@ class EditAdapter(val animal: Animal, changer: Activity2Manager) :
     }
 
     class ViewHolder(view: View, changer: Activity2Manager) :
-            RecyclerView.ViewHolder(view) {
+            RecyclerView.ViewHolder(view), AnimalRemotoListener {
+
+        override fun onAnimalError(mensagem: String)
+        {
+
+        }
+
+        override fun onGetAnimaisReturn(animais: List<Animal>)
+        {
+
+        }
 
         val vw = view
-        lateinit var db:DbConnection
+        var dao = AnimalDaoService(this)
         val changer = changer
 
         fun preencherView(animal: Animal)
@@ -62,12 +71,6 @@ class EditAdapter(val animal: Animal, changer: Activity2Manager) :
 
         private fun updateAnimal(animal: Animal)
         {
-            db = Room.databaseBuilder(
-                    vw.context,
-                    DbConnection::class.java,
-                    "animal_models"
-            ).allowMainThreadQueries().build()
-
             animal.nome = vw.nomeEdit.text.toString()
             animal.especie = vw.especieEdit.text.toString()
             animal.raca = vw.racaEdit.text.toString()
@@ -75,7 +78,7 @@ class EditAdapter(val animal: Animal, changer: Activity2Manager) :
             animal.peso = vw.pesoEdit.text.toString().toDouble()
             animal.porte = vw.porteEdit.selectedItem.toString().toCharArray().get(0)
 
-            db.animalDAO().updateAnimal(animal)
+            dao.edit(animal)
 
             loadInfoView()
         }

@@ -3,12 +3,13 @@ package com.percenter.victor.veterinarian
 /**
  * Created by victor on 09/04/18.
  */
-import android.arch.persistence.room.Room
 import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.percenter.victor.veterinarian.remote.services.DAO.AnimalDaoService
+import com.percenter.victor.veterinarian.remote.services.services.AnimalRemotoListener
 import kotlinx.android.synthetic.main.insert_window.view.*
 
 class InsertAdapter() :
@@ -32,10 +33,20 @@ class InsertAdapter() :
     }
 
     class ViewHolder(view: View) :
-            RecyclerView.ViewHolder(view) {
+            RecyclerView.ViewHolder(view), AnimalRemotoListener {
+
+        override fun onGetAnimaisReturn(animais: List<Animal>)
+        {
+
+        }
+
+        override fun onAnimalError(mensagem: String)
+        {
+
+        }
 
         val vw = view
-        lateinit var db:DbConnection
+        var dao = AnimalDaoService(this)
 
         fun createListener()
         {
@@ -51,12 +62,6 @@ class InsertAdapter() :
 
         private fun addAnimal()
         {
-            db = Room.databaseBuilder(
-                    vw.context,
-                    DbConnection::class.java,
-                    "animal_models"
-            ).allowMainThreadQueries().build()
-
             val animal = Animal(
                         vw.nomeInsert.text.toString(),
                         vw.especieInsert.text.toString(),
@@ -64,7 +69,7 @@ class InsertAdapter() :
                         vw.pesoInsert.text.toString().toDouble(),
                         vw.nascimentoInsert.text.toString(),
                         vw.porteInsert.selectedItem.toString().toCharArray().get(0))
-            db.animalDAO().addAnimal(animal)
+            dao.inserir(animal)
 
             loadMainWindow()
         }
