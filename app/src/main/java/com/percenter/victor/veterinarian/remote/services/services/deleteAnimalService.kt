@@ -10,7 +10,7 @@ import retrofit2.http.Query
  */
 interface deleteAnimalService
 {
-    @DELETE("/deleteAnimal")
+    @DELETE("deleteAnimal")
     fun deleteAnimal(
             @Query("id") id: Int
     ):Call<String>

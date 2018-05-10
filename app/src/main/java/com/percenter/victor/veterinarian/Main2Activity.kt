@@ -1,10 +1,9 @@
 package com.percenter.victor.veterinarian
 
-import android.arch.persistence.room.Room
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.StaggeredGridLayoutManager
-import android.util.Log
+import android.widget.Toast
 import com.percenter.victor.veterinarian.remote.services.DAO.AnimalDaoService
 import com.percenter.victor.veterinarian.remote.services.services.AnimalRemotoListener
 import kotlinx.android.synthetic.main.second_window.*
@@ -13,33 +12,41 @@ class Main2Activity : AppCompatActivity(), Activity2Manager, AnimalRemotoListene
 
     override fun onGetAnimaisReturn(animais: List<Animal>)
     {
-
+        animal = animais[0]
+        if(tipo == 1)
+        {
+            val adapter = InfoAdapter(animal, this)
+            secondViewContent.adapter = adapter
+            val layout = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+            secondViewContent.layoutManager = layout
+        } else {
+            val adapter = InfoAdapter(animal, this)
+            secondViewContent.adapter = adapter
+            val layout = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
+            secondViewContent.layoutManager = layout
+        }
     }
 
     override fun onAnimalError(mensagem: String)
     {
-
+        Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show()
     }
 
     var dao = AnimalDaoService(this)
+    var idAnimal:Int = 0
     lateinit var animal:Animal
+    var tipo: Int = 0
 
     override fun editWindow()
     {
-        animal = db.animalDAO().findById(animal.id!!.toInt())
-        val adapter = EditAdapter(animal, this)
-        secondViewContent.adapter = adapter
-        val layout = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-        secondViewContent.layoutManager = layout
+        tipo = 1
+        dao.getAnimal(idAnimal)
     }
 
     override fun infoWindow()
     {
-        animal = db.animalDAO().findById(animal.id!!.toInt())
-        val adapter = InfoAdapter(animal, this)
-        secondViewContent.adapter = adapter
-        val layout = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
-        secondViewContent.layoutManager = layout
+        tipo = 2
+        dao.getAnimal(idAnimal)
     }
 
     override fun insertWindow()
@@ -58,7 +65,8 @@ class Main2Activity : AppCompatActivity(), Activity2Manager, AnimalRemotoListene
         if(intent.extras.get("cod") == null)
         {
             val extras = intent.extras
-            animal = db.animalDAO().findById(extras.get("id").toString().toInt())
+            idAnimal = extras.get("id").toString().toInt()
+            dao.getAnimal(extras.get("id").toString().toInt())
             infoWindow()
         } else {
             insertWindow()

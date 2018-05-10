@@ -9,6 +9,6 @@ import retrofit2.http.GET
  */
 interface getAnimaisService
 {
-    @GET("/animal")
+    @GET("getAllAnimals")
     fun buscaAnimais(): Call<List<Animal>>
 }

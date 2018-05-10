@@ -5,13 +5,14 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.widget.SearchView
+import android.widget.Toast
 import com.percenter.victor.veterinarian.remote.services.DAO.AnimalDaoService
 import com.percenter.victor.veterinarian.remote.services.services.AnimalRemotoListener
 import kotlinx.android.synthetic.main.main_window.*
 import java.util.*
 
-class MainActivity : AppCompatActivity(), Activity1Manager, SearchView.OnQueryTextListener, AnimalRemotoListener {
-
+class MainActivity : AppCompatActivity(), Activity1Manager, AnimalRemotoListener, SearchView.OnQueryTextListener
+{
     override fun onGetAnimaisReturn(animais: List<Animal>)
     {
         updateWindow(animais)
@@ -19,7 +20,7 @@ class MainActivity : AppCompatActivity(), Activity1Manager, SearchView.OnQueryTe
 
     override fun onAnimalError(mensagem: String)
     {
-
+       Toast.makeText(this, mensagem, Toast.LENGTH_SHORT).show()
     }
 
     var dao = AnimalDaoService(this)
@@ -86,14 +87,13 @@ class MainActivity : AppCompatActivity(), Activity1Manager, SearchView.OnQueryTe
     private fun searchAnimais(): Boolean
     {
         val searchString = "%${searchTf.query}%"
-        val animaisList = db.animalDAO().search(searchString)
-        updateWindow(animaisList)
+        dao.searchAnimal(searchString)
 
-        return animaisList.isEmpty()
+        return false
     }
 
     private fun read()
     {
-        var animais = dao.buscarTodas()
+        dao.buscarTodas()
     }
 }

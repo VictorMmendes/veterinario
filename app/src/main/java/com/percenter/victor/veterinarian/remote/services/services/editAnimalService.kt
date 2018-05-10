@@ -10,7 +10,7 @@ import retrofit2.http.Query
  */
 interface editAnimalService
 {
-    @PUT("/editAnimal")
+    @PUT("editAnimal")
     fun editAnimal(
             @Query("id") id: Int,
             @Query("nome") nome: String,

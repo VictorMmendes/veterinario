@@ -10,7 +10,7 @@ import retrofit2.http.Query
  */
 interface insertAnimalService
 {
-    @POST("/insertAnimal")
+    @POST("insertAnimal")
     fun insertAnimal(
             @Query("nome") nome: String,
             @Query("especie") especie: String,

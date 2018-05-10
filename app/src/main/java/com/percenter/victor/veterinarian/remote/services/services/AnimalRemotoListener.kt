@@ -8,6 +8,5 @@ import com.percenter.victor.veterinarian.Animal
 interface AnimalRemotoListener
 {
     fun onGetAnimaisReturn(animais: List<Animal>)
-
     fun onAnimalError(mensagem: String)
 }

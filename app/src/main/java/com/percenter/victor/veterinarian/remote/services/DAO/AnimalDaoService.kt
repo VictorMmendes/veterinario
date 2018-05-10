@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class AnimalDaoService(val listener: AnimalRemotoListener) {
 
     private var retrofit = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2/api")
+            .baseUrl("http://192.168.0.111/SlimAndroid/FrameworkSlim/rest.php/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -82,6 +82,43 @@ class AnimalDaoService(val listener: AnimalRemotoListener) {
 
             override fun onResponse(call: Call<String>?, response: Response<String>?) {
 
+            }
+        })
+    }
+
+    fun getAnimal(toInt: Int)
+    {
+        var service = retrofit.create(getAnimalService::class.java)
+
+        var call = service.buscaAnimal(toInt)
+
+        call.enqueue(object : Callback<List<Animal>> {
+            override fun onFailure(call: Call<List<Animal>>?, t: Throwable?) {
+                listener.onAnimalError("ERROR on get animals")
+            }
+
+            override fun onResponse(call: Call<List<Animal>>?, response: Response<List<Animal>>?) {
+                var animais: List<Animal> = response?.body()!!
+                listener.onGetAnimaisReturn(animais)
+            }
+        })
+    }
+
+
+    fun searchAnimal(query: String)
+    {
+        var service = retrofit.create(searchAnimalService::class.java)
+
+        var call = service.searchAnimal(query)
+
+        call.enqueue(object : Callback<List<Animal>> {
+            override fun onFailure(call: Call<List<Animal>>?, t: Throwable?) {
+                listener.onAnimalError("ERROR on search animals")
+            }
+
+            override fun onResponse(call: Call<List<Animal>>?, response: Response<List<Animal>>?) {
+                var animais: List<Animal> = response?.body()!!
+                listener.onGetAnimaisReturn(animais)
             }
         })
     }
